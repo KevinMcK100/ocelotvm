@@ -18,6 +18,12 @@ public enum Opcode {
                     return 0;
                 }
             },
+    ALOAD_1(0x2b) {
+                @Override
+                public byte numParams() {
+                    return 0;
+                }
+            },
     ASTORE(0x53) {
                 @Override
                 public byte numParams() {
@@ -31,6 +37,12 @@ public enum Opcode {
                 }
             },
     IADD(0x60) {
+                @Override
+                public byte numParams() {
+                    return 0;
+                }
+            },
+    DADD(0x63) {
                 @Override
                 public byte numParams() {
                     return 0;
@@ -61,6 +73,18 @@ public enum Opcode {
                 }
             },
     ICONST_3(0x06) {
+                @Override
+                public byte numParams() {
+                    return 0;
+                }
+            },
+    DCONST_0(0x0e) {
+                @Override
+                public byte numParams() {
+                    return 0;
+                }
+            },
+    DCONST_1(0x0d) {
                 @Override
                 public byte numParams() {
                     return 0;
@@ -103,6 +127,12 @@ public enum Opcode {
                 }
             },
     IRETURN(0xac) {
+                @Override
+                public byte numParams() {
+                    return 0;
+                }
+            },
+    DRETURN(0xaf) {
                 @Override
                 public byte numParams() {
                     return 0;

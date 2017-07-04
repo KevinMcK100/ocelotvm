@@ -47,6 +47,9 @@ public class InterpMain {
                 case IADD:
                     eval.iadd();
                     break;
+                case DADD:
+                    eval.dadd();
+                    break;    
                 case ICONST_0:
                     eval.iconst(0);
                     break;
@@ -59,6 +62,14 @@ public class InterpMain {
                 case ICONST_3:
                     eval.iconst(3);
                     break;
+                case DCONST_0:
+                    eval.dconst(0);
+                    break;
+                case DCONST_1:
+                    eval.dconst(1);
+                    break;
+                case DRETURN:
+                    return eval.pop();
                 case ICONST_M1:
                     eval.iconst(-1);
                     break;
@@ -85,6 +96,7 @@ public class InterpMain {
                 // Dummy implementation
                 case ALOAD:
                 case ALOAD_0:
+                case ALOAD_1:
                 case ASTORE:
                 case GETSTATIC:
                 case INVOKEVIRTUAL:

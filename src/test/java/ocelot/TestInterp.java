@@ -54,6 +54,25 @@ public class TestInterp {
         assertEquals("Return value should be -2", -2, (int) res.value);
 
     }
+    
+    @Test
+    public void double_arethmetic_works() {
+    	byte[] buf = {DCONST_1.B(), DCONST_1.B(), DADD.B(), DRETURN.B()};
+        JVMValue res = im.execMethod(buf);
+
+        assertEquals("Return type should be double", JVMType.D, res.type);
+        assertEquals("Return value should be 2.0", 2.0, (double) res.value, 0.001);
+
+        byte[] buf2 = {0x0e, 0x0d, 0x63, (byte) 0xaf};
+        res = im.execMethod(buf2);
+        assertEquals("Return type should be double", JVMType.D, res.type);
+        assertEquals("Return value should be 1.0", 1.0, (double) res.value, 0.001);
+        /*
+        byte[] buf3 = {0x05, 0x02, 0x68, (byte) 0xac};
+        res = im.execMethod(buf3);
+        assertEquals("Return type should be int", JVMType.I, res.type);
+        assertEquals("Return value should be -2", -2, (int) res.value);*/
+    }
 
     private byte[] pullBytes(String fName) throws IOException {
         try (InputStream is = TestInterp.class.getClassLoader().getResourceAsStream(fName);
